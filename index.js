@@ -19,7 +19,8 @@ const express = require('express')
   , moment = require('moment')
   , csrf = require('csurf') // https://www.npmjs.com/package/csurf
     , eg001 = require('./eg001EmbeddedSigning')
-    , eg002 = require('./lib/eSignature/eg002SigningViaEmail')
+    , eg002 = require('./lib/eSignature/CustomSigning')
+   // , eg002 = require('./lib/eSignature/eg002SigningViaEmail')
     , eg003 = require('./lib/eSignature/eg003ListEnvelopes')
     , eg004 = require('./lib/eSignature/eg004EnvelopeInfo')
     , eg005 = require('./lib/eSignature/eg005EnvelopeRecipients')
@@ -242,7 +243,7 @@ if (dsConfig.dsClientId && dsConfig.dsClientId !== '{CLIENT_ID}' &&
   console.log(`Listening on ${PORT}`);
   console.log(`Ready! Open ${hostUrl}`);
 } else {
-  console.log(`PROBLEM: You need to set the clientId (Integrator Key), and perhaps other settings as well. 
+  console.log(`PROBLEM: You need to set the clientId (Integrator Key), and perhaps other settings as well.
 You can set them in the configuration file config/appsettings.json or set environment variables.\n`);
   process.exit(); // We're not using exit code of 1 to avoid extraneous npm messages.
 }
